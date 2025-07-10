@@ -1,4 +1,66 @@
+import { useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
+
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState('');
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  // Initialize EmailJS when component mounts
+  useEffect(() => {
+    emailjs.init('mWB88RrxkZcjxbQ3Z'); 
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('');
+
+    // Debug: Log form data
+    console.log('Form data:', formData);
+
+    // Template parameters - make sure these match your EmailJS template
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+      to_name: 'Omkar',
+      reply_to: formData.email,
+    };
+
+    console.log('Template params:', templateParams);
+
+    emailjs.send(
+      'service_tcx7yx6',     
+      'template_xh90xub',    
+      templateParams
+    )
+    .then((result) => {
+      console.log('Email sent successfully:', result);
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    })
+    .catch((error) => {
+      console.error('EmailJS Error:', error);
+      console.error('Error details:', error.text || error.message);
+      setSubmitStatus('error');
+    })
+    .finally(() => {
+      setIsSubmitting(false);
+    });
+  };
+
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800/20 min-h-screen pt-24">
       <div className="max-w-4xl mx-auto">
@@ -55,11 +117,15 @@ export default function Contact() {
             </div>
           </div>
 
-          <form className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">Name</label>
               <input
                 type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
                 className="w-full px-4 py-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                 placeholder="Your Name"
               />
@@ -68,6 +134,10 @@ export default function Contact() {
               <label className="block text-sm font-medium text-gray-300 mb-2">Email</label>
               <input
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
                 className="w-full px-4 py-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                 placeholder="your.email@example.com"
               />
@@ -76,15 +146,35 @@ export default function Contact() {
               <label className="block text-sm font-medium text-gray-300 mb-2">Message</label>
               <textarea
                 rows={5}
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
                 className="w-full px-4 py-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none"
                 placeholder="Tell me about your project..."
               />
             </div>
+
+            {/* Status Messages */}
+            {submitStatus === 'success' && (
+              <div className="p-4 bg-green-500/20 border border-green-500 rounded-lg">
+                <p className="text-green-400">Message sent successfully! I'll get back to you soon.</p>
+              </div>
+            )}
+            {submitStatus === 'error' && (
+              <div className="p-4 bg-red-500/20 border border-red-500 rounded-lg">
+                <p className="text-red-400">Failed to send message. Please check the console for details or contact me directly.</p>
+              </div>
+            )}
+
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-6 rounded-lg font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+              disabled={isSubmitting}
+              className={`w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-6 rounded-lg font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${
+                isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
             >
-              Send Message
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
           </form>
         </div>
