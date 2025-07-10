@@ -45,12 +45,12 @@ const ProjectCard = ({ project, index, isVisible }) => (
         ))}
       </div>
       <div className="flex gap-3">
-        <button className="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+        <a href={project.link} className="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg inline-block text-center">
           Live Demo
-        </button>
-        <button className="px-4 py-2 border border-gray-600 text-gray-300 rounded-lg hover:border-gray-500 hover:text-white transition-all duration-300">
+        </a>
+        <a href={project.github} className="px-4 py-2 border border-gray-600 text-gray-300 rounded-lg hover:border-gray-500 hover:text-white transition-all duration-300 inline-block">
           Code
-        </button>
+        </a>
       </div>
     </div>
   </div>
