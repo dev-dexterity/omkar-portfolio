@@ -10,17 +10,16 @@ export default function Skills() {
 
   const skills = [
     { name: "React", level: 95, category: "Frontend" },
-    { name: "TypeScript", level: 90, category: "Language" },
-    { name: "Node.js", level: 85, category: "Backend" },
-    { name: "Python", level: 80, category: "Language" },
-    { name: "AWS", level: 75, category: "Cloud" },
-    { name: "MongoDB", level: 85, category: "Database" },
-    { name: "Vue.js", level: 80, category: "Frontend" },
-    { name: "Express.js", level: 88, category: "Backend" },
-    { name: "PostgreSQL", level: 82, category: "Database" },
-    { name: "Docker", level: 75, category: "DevOps" },
-    { name: "GraphQL", level: 70, category: "API" },
-    { name: "Next.js", level: 85, category: "Frontend" }
+    { name: "TailwindCSS", level: 90, category: "Frontend" },
+    { name: "Flask", level: 85, category: "Backend" },
+    { name: "Python", level: 85, category: "Language" },
+    { name: "MySQL", level: 90, category: "Database" },
+    { name: "Github", level: 95, category: "Version Control" },
+    { name: "JavaScript", level: 90, category: "Language" },
+    { name: "C", level: 85, category: "Language(DSA)" },
+    { name: "C#", level: 75, category: "Game Development" },
+    { name: "C++", level: 80, category: "Object Oriented Programming" },
+
   ];
 
   return (
