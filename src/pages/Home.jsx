@@ -69,7 +69,7 @@ export default function Home() {
             </span>
           </h3>
           <div className="flex space-x-4 justify-center mt-5">
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer"
+            <a href="https://github.com/dev-dexterity" target="_blank" rel="noopener noreferrer"
               className={`w-12 h-12 bg-gray-800/50 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 text-gray-400 hover:text-white hover:bg-gray-700 animate-float-delay-1 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
@@ -79,7 +79,7 @@ export default function Home() {
               </svg>
             </a>
 
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.linkedin.com/in/omkar-gaikwad-20902b265/" target="_blank" rel="noopener noreferrer"
               className={`w-12 h-12 bg-gray-800/50 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 text-blue-400 hover:text-blue-300 hover:bg-blue-900/30 animate-float-delay-2 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
@@ -89,7 +89,7 @@ export default function Home() {
               </svg>
             </a>
 
-            <a href="https://leetcode.com/yourusername" target="_blank" rel="noopener noreferrer"
+            <a href="https://leetcode.com/u/tzTshezLAq/" target="_blank" rel="noopener noreferrer"
               className={`w-12 h-12 bg-gray-800/50 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 text-orange-400 hover:text-orange-300 hover:bg-orange-900/30 animate-float-delay-3 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
@@ -99,7 +99,7 @@ export default function Home() {
               </svg>
             </a>
 
-            <a href="https://www.naukri.com/code360/profile/yourusername" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.naukri.com/code360/profile/1464443a-b35c-4d74-b660-007b267a0a2a" target="_blank" rel="noopener noreferrer"
               className={`w-12 h-12 bg-gray-800/50 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 text-green-400 hover:text-green-300 hover:bg-green-900/30 animate-float-delay-4 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}

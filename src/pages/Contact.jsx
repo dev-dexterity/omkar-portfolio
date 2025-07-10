@@ -53,8 +53,6 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-
-            
           </div>
 
           <form className="space-y-6">
